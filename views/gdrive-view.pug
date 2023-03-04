@@ -1,0 +1,34 @@
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+    body 
+        h1. 
+            GDrive API
+        
+        
+        
+        div
+            div                   
+                button
+                    a(class='button', href='/gdrive-api/files') Get Files
+                button 
+                    a(class='button', href='/gdrive-api/folders') Get folders
+            div
+                input(id="searchInput", placeholder="All", oninput= "searchInputChange()" )
+                button 
+                    a(id='searchBtn', class='button', href='/gdrive-api/search?name=') Search files or folder
+            div
+                input(id='createFolderInput', oninput='createFolderInputChange()')
+                button
+                    a(id='createFolderBtn', class='button', href='/createFolder?name=') Create folder
+        table
+            -
+                var files = files
+            each file in files
+                tr
+                    td=file
+
+
+        script 
+            include js/gdrive-view.js
